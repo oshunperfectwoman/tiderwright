@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a1118">
+  <link rel="icon" href="data:,">
+  <title>TradiTour 2027</title>
+  <style>
+/* Layout: one full-bleed WebGL canvas; all UI is a DOM overlay inside #tw-ui (owned by 71-ui.js). */
+:root {
+  color-scheme: dark;
+  --tw-ink: #0a1118;        /* deepest night-sea ink */
+  --tw-deep: #10202b;       /* storm teal shadow */
+  --tw-foam: #e9efe6;       /* sea-foam white (text) */
+  --tw-mist: #9fb3b8;       /* muted mist (secondary text) */
+  --tw-ember: #ffb45a;      /* lantern flame (accent) */
+  --tw-ember-deep: #d9622b; /* ember core */
+  --tw-verdigris: #6fb7a6;  /* oxidised copper (compass, hull gauge) */
+}
+html, body { height: 100%; background: var(--tw-ink); color: var(--tw-foam); overflow: hidden; }
+body { margin: 0; overscroll-behavior: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: none; }
+[hidden] { display: none !important; }
+#tw-root { position: fixed; inset: 0; background: var(--tw-ink); overflow: hidden; }
+#tw-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; outline: none; }
+#tw-ui { position: absolute; inset: 0; pointer-events: none; }
+#tw-loading { position: absolute; inset: 0; display: grid; place-items: center; background: var(--tw-ink); color: var(--tw-mist); font: italic 15px/1.5 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; letter-spacing: 0.04em; transition: opacity 0.9s ease; z-index: 50; pointer-events: none; }
+#tw-loading.tw-done { opacity: 0; }
+#tw-loading b { display: block; font-style: normal; font-weight: 400; color: var(--tw-ember); letter-spacing: 0.42em; text-indent: 0.42em; text-transform: uppercase; font-size: 13px; margin-bottom: 10px; text-align: center; }
+#tw-loading span { display: block; text-align: center; }
+@media (prefers-reduced-motion: reduce) { #tw-loading { transition: none; } }
+#tw-nogl[hidden] { display: none !important; }
+#tw-nogl { position: absolute; inset: 0; display: grid; place-items: center; padding-block: 24px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); text-align: center; font: 16px/1.5 Georgia, 'Times New Roman', serif; color: var(--tw-foam); }
+</style>
+</head>
+<body>
+  <div id="tw-root">
+  <canvas id="tw-canvas" tabindex="0" aria-label="Tidewright game view"></canvas>
+  <div id="tw-ui"></div>
+  <div id="tw-loading" role="status" aria-live="polite"><div><b>TradiTour 2027</b><span>Préparation de la régate…</span></div></div>
+  <div id="tw-nogl" hidden role="alert">Tidewright needs WebGL 2 to paint its sea. Open it in a current version of Chrome, Edge, Firefox or Safari.</div>
+</div>
+  <script>
+__TIDEWRIGHT_SOURCE_SCRIPT__</script>
+</body>
+</html>
